@@ -26,3 +26,25 @@ document.addEventListener("DOMContentLoaded", function () {
     window.startChrono = startChrono;
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  var sizeRange = document.getElementById("sizeRange");
+  var colorRange = document.getElementById("colorRange");
+  var firepit = document.querySelector(".firepit");
+
+//position
+/*positionSlider.addEventListener("input", function () {
+      firepit.style.width = this.value + "px";
+      firepit.style.height = this.value + "px";
+  });*/
+
+  sizeRange.addEventListener('input', function() {
+      const newSize = this.value;
+      firepit.style.transform = `scale(${newSize})`;
+  });
+
+  colorRange.addEventListener("input", function () {
+      // Modifier la couleur de l'élément en fonction de la valeur du curseur de couleur
+      var hue = this.value; // La valeur est entre 0 et 360
+      firepit.style.filter = "hue-rotate(" + hue + "deg)";
+  });
+});
